@@ -1,5 +1,4 @@
 # Angular Q&A application
-_________
 
 Here you can create an event and get questions from your audience they can like questions which more interest.
 You while leading event can answer on questions, edit them or delete.
