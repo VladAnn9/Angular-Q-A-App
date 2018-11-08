@@ -1,0 +1,19 @@
+<div class="main">
+    <div class="code-main">
+      <span class="hash">#</span>
+      <input #code class="code-main-text" type="text" name="code" placeholder="Event code" required> 
+      <input class="code-main-sub" type="submit" value="JOIN" (click)="join(code.value)"
+        routerLink="/user"> 
+      <span>or</span>
+      <a class="create-event-btn" (click)="show = !show">Create Event</a>
+    </div>
+
+    <div *ngIf="show" class="data">
+      
+        <input #eventName class="name" type="text" name="name" placeholder="Event name" required>
+        <input #eventCode class="create-code" type="text" placeholder="Your event code">
+        <input class="create-event" type="submit" value="CREATE" routerLink="/questions" 
+        (click)="createEvent(eventName.value, eventCode.value)"> 
+      
+    </div>
+</div>

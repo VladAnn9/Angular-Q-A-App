@@ -1,0 +1,38 @@
+<app-admin></app-admin>
+
+<section class="my-container">
+  <div class="row1">
+    <div>
+      <h4 class="p-label">Active events</h4>
+    </div>
+
+    <div class="container">
+      <div class="info-event" *ngFor="let event of events">
+        <div class="next-event" (click)="goToEvent(event)" routerLink="/questions">
+          <div class="del">
+            <button class="btn-del" title="Delete" (click)="deleteEvent(event)"><fa-icon [icon]="faTrashAlt" size="lg"></fa-icon></button>
+          </div>
+          <span class="name">{{event.name}}</span>
+          <span class="code">#{{event.code}}</span>
+          <span class="date">{{event.date | date: 'd MMM, h:mm a'}}</span>
+        </div>
+      </div>
+  
+      <div class="create-event">
+        <label class="plus" for="createEventId"><fa-icon [icon]="faPlus" size="xs"></fa-icon></label>
+        <div class="form-input">
+          <input #name class="create-name" id="createEventId" placeholder="Create a new event">
+          <input #code class="create-code" placeholder="Event code">
+        </div>
+
+        <div class="form-bnts">
+          <button class="cancel" (click)="name.value = ''; code.value = ''">x</button>
+          <button class="create" type="button" (click)="createEvent(name.value, code.value)" routerLink="/questions">
+            <fa-icon [icon]="faArrowRight" size="lg"></fa-icon></button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

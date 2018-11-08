@@ -1,0 +1,56 @@
+<app-admin></app-admin>
+
+<section class="my-container" *ngIf="questions">
+  <div class="container">
+    <div>
+      <h4 class="p-ask">Ask the speaker</h4>
+    </div>
+  
+    <div class="ask">
+      <div class="high-ask">
+        <fa-icon class="icon" [icon]="faComments" size="lg"></fa-icon>
+        <textarea #newQuestion placeholder="Type your question" rows="1"></textarea>
+      </div>
+      <div class="low-ask">
+        <input #name placeholder="Your name (optional)" type="text">
+        <button class="btn-send" type="button" (click)="addNewQuestion(newQuestion.value, name.value); 
+          newQuestion.value=''; name.value=''">send</button>
+      </div>
+    </div>
+  
+    <div>
+      <h4 class="p-ask">{{questions.length}} {{questions.length === 1 ? 'question' : 'questions'}}</h4>
+    </div>
+
+    <div *ngFor="let question of questions" class="ask">
+      <div class="question">
+
+        <div class="like-div" (click)="changeLike(question)" (click)="sortByLikes()"
+          [class.active-like]="question.likes === 1">
+          <fa-icon [icon]="['far', 'thumbs-up']" [hidden]="question.likes === 1" 
+            size="sm" class="like"></fa-icon>
+          <fa-icon [icon]="['fas', 'thumbs-up']" [hidden]="question.likes === 0" 
+            size="sm" class="like"></fa-icon>
+        </div>
+
+        <p class="author">{{question.author}}</p>
+        <p class="date">{{question.date | date: 'd MMM, h:mm a'}}</p>
+        <p class="question-text">{{question.question}}</p>
+      </div>
+      
+      <div class="reply-div" *ngIf="question.replies.length > 0">
+        <div (click)="showReplies(question)" class="rep">
+          <fa-icon class="rep-icon" [icon]="faReply" size="xs"></fa-icon>
+          <p class="rep-p">
+            {{question.replies.length}} {{question.replies.length === 1 ? 'reply' : 'replies'}}</p>
+        </div>
+        <ng-container *ngIf="isReply[question.id]">
+          <div class="reply" *ngFor="let reply of question.replies">
+            <p>{{reply}}</p>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+  </div>
+</section>

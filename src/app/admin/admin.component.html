@@ -1,0 +1,50 @@
+
+<div class="main" *ngIf="event">
+
+  <div class="cont" [hidden]="!eventsList.isActive">
+    <h3 class="welcome">Welcome to the Q&A app!</h3>
+
+    <div class="cont-main row new">
+      <div class="btn-menu">
+          <fa-icon [icon]="faHome" size="sm" class="btn-menu-1" routerLink="/questions" routerLinkActive="active"></fa-icon>
+          <fa-icon [icon]="faMobileAlt" size="sm" class="btn-menu-2" routerLink="/user" 
+           routerLinkActive #backGr="routerLinkActive" [class.active]="backGr.isActive"></fa-icon>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="cont" [hidden]="eventsList.isActive" 
+    [ngStyle]="{'background-color': backGr.isActive ? '#53a52f' : '#1d73ad' }">
+    <div class="cont-main row">
+      <div class="arr-icon" routerLink="/events" routerLinkActive #eventsList="routerLinkActive">
+          <fa-icon [icon]="faChevronLeft" size="xs" class="arrow"></fa-icon>
+      </div>
+      <div class="name-menu">
+        <h4>{{event.name}}</h4>
+        <p class="date">{{event.date | date: 'd MMM, h:mm a'}}</p>
+      </div>
+    
+      <div class="row code-menu">
+          <h4>#{{event.code}}</h4>
+      </div>
+    
+      <div class="row btn-menu">
+        <fa-icon [icon]="faHome" size="sm" class="btn-menu-1" routerLink="/questions" routerLinkActive="active"></fa-icon>
+        <fa-icon [icon]="faMobileAlt" size="sm" class="btn-menu-2" routerLink="/user" 
+         routerLinkActive #backGr="routerLinkActive" [class.active]="backGr.isActive"></fa-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="who-menu">
+    <div class="row who-menu-text">
+      <p [ngStyle]="{'color': backGr.isActive ? '#64c73a' : '#2182c3', 
+      'border-bottom': backGr.isActive ? 'solid 3px #64c73a' : 'solid 3px #2182c3'}">{{backGr.isActive ? 'User' : 'Admin'}}</p>
+    </div>
+  </div>
+
+    
+</div>
+
+

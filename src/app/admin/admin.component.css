@@ -1,0 +1,133 @@
+.cont {
+    background-color: #1d73ad;
+    color: #fff;   
+    height: 62px;;
+    width: 100%;
+}
+
+.welcome {
+    width: 30%;
+    margin: 0 auto;
+    padding: 12px 0;
+    text-align: center;
+}
+
+.new {
+    margin-top: -58px;
+}
+
+.cont-main {
+    position: relative;
+    padding: 8px 25px 0 25px;
+    line-height: 1.5;
+}
+
+.name-menu {
+    display: inline-block;
+    margin-left: 2.5em;
+}
+
+.date {
+    font-weight: 300;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.1s;
+    cursor: auto;
+}
+
+.date:hover {
+    color: #fff;
+}
+
+.arr-icon {
+    position: absolute;
+    margin-top: 10px;
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    padding: 1px 1px 0 0;
+    background-color: hsla(0,0%,100%,.15);
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;   
+    outline: none;
+    transition: background-color 0.2s;
+}
+
+.arr-icon:hover { 
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.code-menu {
+    position: absolute;
+    display: inline-block;
+    left: 50%;
+    transform: translate(-50%);
+    padding-top: 6px;
+}
+
+
+.btn-menu { 
+    float: right;
+    width: 100px;
+    padding: 6px;
+    background-color: rgba(0,0,0,.15);
+    border-radius: 200px;
+}
+
+.btn-menu-1 {
+    padding: 4px 7px;
+    outline: none;
+    cursor: pointer;
+}
+
+.active {
+
+    color: #1d73ad;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 2px rgba(0,0,0,.3);
+    
+}
+
+.btn-menu-2 {
+    float: right;
+    padding: 1px 10px;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-menu-1:active, .btn-menu-2:active { 
+    color: #1d73ad;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 2px rgba(0,0,0,.3);
+}
+
+/* ------ LOWER MENU ------ */
+
+.who-menu {
+    height: 48px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.2);
+    background-color: #fff;
+    
+}
+
+.who-menu-text {
+    width: 100px;
+    
+}
+
+.who-menu-text p {
+    font-size: 14px;
+    font-weight: 700;
+    height: 48px;
+    line-height: 48px;
+    color: #2182c3;
+    border-bottom: solid 3px #2182c3;
+    padding: 0 20px;
+    text-align: center;
+    
+}
+
+

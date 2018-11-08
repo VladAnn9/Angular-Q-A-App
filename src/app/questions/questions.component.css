@@ -1,0 +1,234 @@
+.my-container {
+    min-height: 100%;
+    background: rgba(0, 0, 0, 0.03);
+}
+
+
+.p-questions {
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 26px;   
+    padding-top: 8px;
+    color: #9c9c9c;
+    height: 48px;
+    line-height: 48px;
+}
+
+.container {
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.2);
+    margin-top: 10px;
+    height: 90%;
+}
+
+.question {
+    min-height: 100px;
+    padding: 10px 20px 5px 20px;
+    position: relative;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+
+}
+
+.author {
+    font-weight: 700;
+}
+
+.date {
+    display: inline-block;
+    margin-right: 4px;
+    color: #9c9c9c;
+    font-weight: 400;
+}
+
+.like-div { 
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.like {
+    margin: 0 4px;
+    color: #1d73ad;
+}
+
+.question-text { 
+    font-weight: 400;
+    font-size: 16px;
+    margin: 8px 12px;
+}
+
+/* ------ BUTTONS ------ */
+
+.btns {
+    float: right;
+    display: none;
+}
+
+.item {
+    margin-right: 30px;
+    border: solid 1px #666;
+    border-radius: 50%;
+    text-decoration: none;
+    width: 44px;
+    height: 44px;
+    background-color: #fff;
+    text-align: center;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s;
+    outline: none;
+}
+
+fa-icon {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.item:hover, .item:active { 
+    color: #1d73ad;
+    border-color: #1d73ad;
+} 
+
+.question:hover .btns {
+    display: block;
+}
+
+/* ------ REPLY FIELD ------ */
+
+/* << TEXTAREA >> */
+
+.question textarea {
+    line-height: 1.2;
+    resize: none;
+    outline: none;
+    overflow: auto;
+}
+
+.answer-text {
+    font: inherit;
+    width: 80%;
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: 300;
+    border: none;
+}
+
+.answer { 
+    border-top: 1px solid rgba(0,0,0,.125);
+    margin-top: 10px;
+}
+
+.reply-btn {
+    text-transform: uppercase;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid #1d73ad;
+    color: #1d73ad;
+    background: #fff;
+    font-size: 14px;
+    border-radius: 200px;
+    padding: 14px;
+    display: inline-flex;
+    outline: none;
+    margin-top: -45px;
+    transition: border 0.2s ease;
+    cursor: pointer;
+}
+
+.reply-btn:hover, .reply-btn:active {
+    border-color: #fff;
+} 
+
+.ans {
+    font-weight: 700;
+    color: #1d73ad;
+    font-size: 14px;
+}
+
+.delete-reply {
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: grey;
+    vertical-align: middle;
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.reply-div .delete-reply:hover, .reply-div .delete-reply:active {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: rgb(88, 88, 88);
+    margin-right: 16px;
+}
+
+.text-right .delete-reply:hover, .text-right .delete-reply:active {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: rgb(88, 88, 88);
+}
+
+/* ------ EDIT FIELD ------ */
+
+.edit {
+    margin-top: 16px;
+}
+
+.edit-text {
+    font: inherit;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    border: solid 1px rgba(0,0,0,.125);
+    padding: 5px 11px; 
+    
+}
+
+.col-2 {
+    width: 50%;
+}
+
+.text-left {
+    text-align: left;
+    float: left;
+}
+
+.text-right {
+    text-align: right;
+    float: right;
+}
+
+.save-edit {
+    margin-left: 16px;
+    font-size: 16px;
+    color: #fff;
+    background: #4285f4;
+    padding: 6px 12px;
+    border: 1px solid #4285f4;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.save-edit:hover, .save-edit:active {
+    background: #1266f1;
+    border: 1px solid #0e61eb;
+}
+
+.edit-div {
+    margin: 10px 0 10px 10px;
+}
+
+.edit-div::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
+

@@ -1,0 +1,198 @@
+
+
+.my-container {
+    min-height: 100%;
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.row1 {
+    max-width: 960px;
+    margin: 0 auto; 
+}
+
+.p-label {
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 26px;   
+    padding-top: 8px;
+    color: #9c9c9c;
+    height: 48px;
+    line-height: 48px;
+}
+
+.container {
+    background: #fff;
+    margin-top: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.2);
+    border-radius: 3px;
+}
+
+.info-event {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 12px 20px;
+    height: 75px;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    transition: background-color .2s;
+}
+
+.next-event {
+    cursor: pointer;
+    outline: none;
+}
+
+.info-event:hover {
+    background-color: #fbf9fe;
+}
+
+.create-event {
+    padding: 12px 20px;
+    height: 75px;
+    vertical-align: middle;
+    transition: background-color .2s;
+}
+
+.create-event:hover {
+    background-color: #fbf9fe;
+}
+
+.name {
+    margin-right: 12px;
+}
+
+.code {
+    color: #1d73ad;
+}
+
+.date {
+    display: block;
+    color: #9c9c9c;
+    font-weight: 400;
+    margin: 8px 0 0 10px;
+    max-width: 12rem; 
+    font-size: 14px;
+}
+
+/* ===== BUTTONS ===== */
+
+.del {
+    float: right;
+    display: none;
+}
+
+.btn-del {
+    background: transparent;
+    margin-right: 50px;
+    margin-top: 3px;
+    border: solid 1px #666;
+    border-radius: 50%;
+    text-decoration: none;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s;
+    outline: none;
+}
+
+fa-icon {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.btn-del:hover, .btn-del:active { 
+    color: #1d73ad;
+    border-color: #1d73ad;
+} 
+
+.info-event:hover .del {
+    display: block;
+}
+
+/* ===== NEW EVENT FORM ===== */
+
+.create-event input:not(:focus) {
+    cursor: pointer;
+}
+/* #53a52f */
+
+
+
+.plus {
+    color: #9c9c9c;
+    margin-left: 38px;
+    vertical-align: top; 
+    cursor: pointer;
+    transition: color .2s;
+}
+
+.form-input {
+    display: inline-block;
+    transition: color .2s;
+    
+}
+
+.create-name, .create-code {
+    background: transparent;
+    color: #555;
+    font-size: 16px;
+    font-weight: 300;
+    border: none;
+    margin-top: 14px;
+    width: 11rem;
+    outline: none;
+    transition: padding-bottom 0.4s, border-bottom 0.2s;
+}
+
+.create-name:focus, .create-code:focus {
+    padding-bottom: 4px;
+    border-bottom: 1px solid #70be4e;
+}
+
+.create-name {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.create-event:hover > .plus {
+    color: #63b141;
+}
+
+.form-bnts {
+    float: right;
+}
+
+.cancel {
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: grey;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.cancel:hover, .cancel:active {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: rgb(88, 88, 88);
+}
+
+.create {
+    background: #70be4e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin: 9px 58px 9px 28px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    outline: none;
+    transition: background .2s;
+}
+
+.create:hover {
+    background: #63b141;
+}
