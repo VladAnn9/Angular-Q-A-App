@@ -9,8 +9,8 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 2, name: 'test2', code: '3D3', date: Date.now() }
     ];
     const questions = [
-      { id: 1, question: 'Lorem ipsum.', author: 'Vlad', likes: 0, replies: [], date: Date.now()},
-      { id: 2, question: 'Lorem ipsum. Vlad Hey', author: 'Anna', likes: 0, replies: [], date: Date.now()}
+      { id: 1, question: 'Lorem ipsum.', author: 'Vlad', likes: 0, replies: [], date: Date.now(), eventCode: '2D2'},
+      { id: 2, question: 'Lorem ipsum. Vlad Hey', author: 'Anna', likes: 0, replies: [], date: Date.now(), eventCode: '3D3'}
     ];
     return {events, questions};
   }

@@ -46,7 +46,6 @@
     border: none;
     padding: 30px 30px 30px 64px;
     background: transparent;
-
     resize: none;
     outline: none;
     transition: all .5s;
@@ -70,8 +69,8 @@
     font: inherit;
     font-size: 14px;
     border: none;
-    margin: 18px 20px;
-    width: 220px;
+    padding: 18px 20px;
+    width: 24rem;
     outline: none;
 }
 
@@ -105,7 +104,6 @@
 /* ====== QUESTION FIELD ====== */
 
 .question {
-    
     padding: 12px 16px;
     font-size: 14px;
 }
@@ -131,7 +129,6 @@
 
 .like {
     color: #2181c2;
-    
 }
 
 .like-div {

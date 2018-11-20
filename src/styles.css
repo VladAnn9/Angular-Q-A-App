@@ -12,7 +12,6 @@ html, body {
     font-weight: 300;
     font-size: 20px;
     text-rendering: optimizeLegibility;
-    /* height: 100%; */
     width: 100vw;
     height: 100vh;
     line-height: 1.5;

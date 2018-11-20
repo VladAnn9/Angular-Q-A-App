@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
 import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { faEdit } from '@fortawesome/free-regular-svg-icons';
@@ -6,6 +6,10 @@ import { faReply } from '@fortawesome/free-solid-svg-icons';
 
 import { Question } from '../question';
 import { QuestionService } from '../question.service';
+
+import { Event } from '../event';
+import { EventService } from '../event.service';
+import { max } from 'rxjs/operators';
 
 
 @Component({
@@ -17,36 +21,52 @@ export class QuestionsComponent implements OnInit {
 
   questions: Question[];
 
+  event: Event;
 
   faThumbsUp = faThumbsUp;
   faTrashAlt = faTrashAlt;
   faEdit = faEdit;
   faReply = faReply;
 
-
   isEdit: any = {};
 
   hideMe: any = {};
     
   id: number;
+
+  letterCount: number = 150;
+
+  @ViewChild('reply') input: ElementRef;
   
-  constructor(private questionService: QuestionService) { }
+  constructor(
+    private questionService: QuestionService,
+    private eventService: EventService,
+    private cdRef:ChangeDetectorRef
+    ) { }
 
   ngOnInit() {
     this.getQuestions();
+    this.getEvent();
+  }
+
+  getEvent(): void {
+    this.eventService.getEvents().subscribe(events => this.event = events[events.length - 1]);
   }
 
   getQuestions(): void { 
     this.questionService.getQuestions().subscribe(q => this.questions = q);
   }
 
-  showReply(q): void {
+  showReply(q: Question): void {
     if (q.id !== this.id || Object.keys(this.hideMe).length === 0) { 
       Object.keys(this.hideMe).forEach(h => {
         this.hideMe[h] = false;
       });
       this.hideMe[q.id] = true;
       this.id = q.id;
+
+      this.cdRef.detectChanges();
+      this.input.nativeElement.focus();
     } else { 
       this.hideMe[q.id] = false;
       this.id = -1;
@@ -82,7 +102,9 @@ export class QuestionsComponent implements OnInit {
     this.isEdit[q.id] = true;
   }
 
-  editSave(editedQuestion: string, q): void {
+  editSave(editedQuestion: string, q: Question): void {
+    editedQuestion.trim();
+    editedQuestion = editedQuestion.replace(/\n|\r/g, "");
     q.question = editedQuestion;
     this.isEdit[q.id] = false;
     this.questionService.updateQuestion(q).subscribe();
@@ -91,6 +113,11 @@ export class QuestionsComponent implements OnInit {
   deleteQuestion(question: Question): void {
     this.questions = this.questions.filter(q => q !== question)
     this.questionService.deleteQuestion(question).subscribe();
+  }
+
+  count(letters: string): number {
+    let maxSize: number = 150;
+    return this.letterCount = maxSize - letters.length;
   }
 
 }

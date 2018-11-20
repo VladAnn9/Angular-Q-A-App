@@ -5,57 +5,62 @@
     <h4 class="p-questions">Questions</h4>
   </div>
 
-  <div class="container row">
-    <div class="question" *ngFor="let question of questions"> <!-- ngFor -->
-      <div class="btns">
-        <button class="item" title="Reply"
-          (click)="showReply(question)"><fa-icon [icon]="faReply" size="lg"></fa-icon></button>
-        <button class="item" title="Edit"
-          (click)="showEdit(question)"><fa-icon [icon]="faEdit" size="lg"></fa-icon></button>
-        <button class="item" title="Delete" (click)="deleteQuestion(question)"><fa-icon [icon]="faTrashAlt" size="lg"></fa-icon></button>
-      </div>
-      <p class="author">{{question.author}}</p>
-      <p class="date">{{question.date | date: 'd MMM, h:mm a'}}</p>
-      <div class="like-div">
-        <fa-icon [icon]="faThumbsUp" size="sm" class="like"></fa-icon>
-        <span class="counter">{{question.likes}}</span>
-      </div>
-
-
-      <div *ngIf="!isEdit[question.id]; else showEd">
-        <p class="question-text">{{question.question}}</p>
-      </div> 
-
-      <ng-template #showEd>
-        <form class="edit">
-          <textarea class="edit-text" placeholder="Edit question" rows="3" maxlength="150"
-            (keyup.enter)="editSave(editedQuestion.value, question)" #editedQuestion>{{question.question}}</textarea>
-          <div class="edit-div">
-            <div class="col-2 text-left">
-              
+    <ng-container *ngIf="event">
+      <div class="container row">
+        <div class="question" *ngFor="let question of questions" [hidden]="event.code !== question.eventCode">
+            
+            <div class="btns">
+              <button class="item" title="Reply"
+                (click)="showReply(question)"><fa-icon [icon]="faReply" size="lg"></fa-icon></button>
+              <button class="item" title="Edit"
+                (click)="showEdit(question)"><fa-icon [icon]="faEdit" size="lg"></fa-icon></button>
+              <button class="item" title="Delete" (click)="deleteQuestion(question)"><fa-icon [icon]="faTrashAlt" size="lg"></fa-icon></button>
             </div>
-            <div class="col-2 text-right">
-                <button class="delete-reply" title="delete" (click)="isEdit[question.id] = false">x</button>
-                <button class="save-edit" title="save" type="button" (click)="editSave(editedQuestion.value, question)">Save</button>
+            <p class="author">{{question.author}}</p>
+            <p class="date">{{question.date | date: 'd MMM, h:mm a' : '+0100' }}</p>
+            <div class="like-div">
+              <fa-icon [icon]="faThumbsUp" size="sm" class="like"></fa-icon>
+              <span class="counter">{{question.likes}}</span>
             </div>
-          </div>
-        </form>
-      </ng-template>
-      
 
-      <ng-container *ngIf="question.replies.length > 0">
-        <p class="ans">Answers:</p>
-        <div class="reply-div" *ngFor="let reply of question.replies">
-          <button class="delete-reply" title="delete" (click)="deleteReply(reply, question)">x</button>{{reply}}
+
+            <div *ngIf="!isEdit[question.id]; else showEd">
+              <p class="question-text">{{question.question}}</p>
+            </div> 
+
+            <ng-template #showEd>
+              <form class="edit">
+                <textarea class="edit-text" placeholder="Edit question" rows="3" maxlength="150"
+                  (keyup.enter)="editSave(editedQuestion.value, question)" #editedQuestion
+                  (keyup)="count(editedQuestion.value)">{{question.question}}</textarea>
+                <div class="edit-div">
+                  <div class="col-2 text-left">
+                    <span>{{count(editedQuestion.value)}}</span>
+                  </div>
+                  <div class="col-2 text-right">
+                      <button class="delete-reply" title="delete" (click)="isEdit[question.id] = false">x</button>
+                      <button class="save-edit" title="save" type="button" (click)="editSave(editedQuestion.value, question)">Save</button>
+                  </div>
+                </div>
+              </form>
+            </ng-template>
+            
+
+            <ng-container *ngIf="question.replies.length > 0">
+              <p class="ans">Answers:</p>
+              <div class="reply-div" *ngFor="let reply of question.replies">
+                <button class="delete-reply" title="delete" (click)="deleteReply(reply, question)">x</button>{{reply}}
+              </div>
+            </ng-container>
+            
+            <div class="answer" *ngIf="hideMe[question.id]">
+              <textarea class="answer-text" placeholder="Type your reply" rows="2" #reply (keyup.enter)="sendReply(reply.value, question)"></textarea>
+              <button class="reply-btn" type="submit" (click)="sendReply(reply.value, question)">send</button>
+            </div>
+          
         </div>
-      </ng-container>
-      
-      <div class="answer" *ngIf="hideMe[question.id]">
-        <textarea class="answer-text" placeholder="Type your reply" rows="2" #reply (keyup.enter)="sendReply(reply.value, question)"></textarea>
-        <button class="reply-btn" type="submit" (click)="sendReply(reply.value, question)">send</button>
       </div>
-    </div>
-  </div>
+    </ng-container>
 
 </section>
 

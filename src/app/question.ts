@@ -5,4 +5,5 @@ export class Question {
     likes: number;
     replies: Array<string>;
     date: number;
+    eventCode: string;
 }

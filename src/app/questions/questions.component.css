@@ -3,7 +3,6 @@
     background: rgba(0, 0, 0, 0.03);
 }
 
-
 .p-questions {
     font-size: 16px;
     font-weight: 400;
@@ -28,7 +27,10 @@
     position: relative;
     font-size: 14px;
     border-bottom: 1px solid rgba(0,0,0,.125);
+}
 
+.question:hover, .question:active {
+    background-color: #fbf9fe;
 }
 
 .author {
@@ -72,7 +74,7 @@
     text-decoration: none;
     width: 44px;
     height: 44px;
-    background-color: #fff;
+    background-color: transparent;
     text-align: center;
     color: #666;
     cursor: pointer;
@@ -111,6 +113,7 @@ fa-icon {
     padding: 10px 30px;
     font-size: 18px;
     font-weight: 300;
+    background: transparent;
     border: none;
 }
 
@@ -125,7 +128,7 @@ fa-icon {
     text-align: center;
     border: 1px solid #1d73ad;
     color: #1d73ad;
-    background: #fff;
+    background: transparent;
     font-size: 14px;
     border-radius: 200px;
     padding: 14px;
@@ -137,7 +140,7 @@ fa-icon {
 }
 
 .reply-btn:hover, .reply-btn:active {
-    border-color: #fff;
+    border-color: #fbf9fe;
 } 
 
 .ans {
@@ -184,7 +187,6 @@ fa-icon {
     font-weight: 400;
     border: solid 1px rgba(0,0,0,.125);
     padding: 5px 11px; 
-    
 }
 
 .col-2 {

@@ -1,7 +1,7 @@
 <app-admin></app-admin>
 
 <section class="my-container" *ngIf="questions">
-  <div class="container">
+  <div class="container" *ngIf="event">
     <div>
       <h4 class="p-ask">Ask the speaker</h4>
     </div>
@@ -13,16 +13,16 @@
       </div>
       <div class="low-ask">
         <input #name placeholder="Your name (optional)" type="text">
-        <button class="btn-send" type="button" (click)="addNewQuestion(newQuestion.value, name.value); 
+        <button class="btn-send" type="button" (click)="addNewQuestion(newQuestion.value, name.value); ourQuestions();
           newQuestion.value=''; name.value=''">send</button>
       </div>
     </div>
   
     <div>
-      <h4 class="p-ask">{{questions.length}} {{questions.length === 1 ? 'question' : 'questions'}}</h4>
+      <h4 class="p-ask">{{ourQuestions()}} {{counter === 1 ? 'question' : 'questions'}}</h4>
     </div>
 
-    <div *ngFor="let question of questions" class="ask">
+    <div *ngFor="let question of questions" class="ask" [hidden]="question.eventCode !== event.code">
       <div class="question">
 
         <div class="like-div" (click)="changeLike(question)" (click)="sortByLikes()"
@@ -34,7 +34,7 @@
         </div>
 
         <p class="author">{{question.author}}</p>
-        <p class="date">{{question.date | date: 'd MMM, h:mm a'}}</p>
+        <p class="date">{{question.date | date: 'd MMM, h:mm a' : '+0100' }}</p>
         <p class="question-text">{{question.question}}</p>
       </div>
       

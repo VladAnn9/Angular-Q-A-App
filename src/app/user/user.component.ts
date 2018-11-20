@@ -6,6 +6,9 @@ import { faReply } from '@fortawesome/free-solid-svg-icons';
 import { Question } from '../question';
 import { QuestionService } from '../question.service';
 
+import { Event } from '../event';
+import { EventService } from '../event.service';
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -18,18 +21,39 @@ export class UserComponent implements OnInit {
 
   questions: Question[];
 
+  eventQuestions: Question[];
+
+  event: Event;
+
   isReply: any = {};
 
   id: Array<number> = [];
 
-  constructor(private questionService: QuestionService) { }
+  counter: number = 0;
+
+  constructor(
+    private questionService: QuestionService,
+    private eventService: EventService
+    ) { }
 
   ngOnInit() {
+    this.getEvent();
     this.getQuestions();
   }
 
   getQuestions(): void { 
     this.questionService.getQuestions().subscribe(q => this.questions = q);
+  }
+
+  getEvent(): void {
+    this.eventService.getEvents().subscribe(events => this.event = events[events.length - 1]);
+  }
+
+  ourQuestions(): number {
+    let i: number = 0;
+    this.questions.forEach(question => question.eventCode === this.event.code ? i++ : i = i );
+    this.counter = i;
+    return i;
   }
 
   addNewQuestion(question: string, author: string) {
@@ -38,7 +62,8 @@ export class UserComponent implements OnInit {
     let likes = 0;
     let replies = [];
     let date = Date.now();
-    this.questionService.addQuestion({ question, author, likes, replies, date } as Question).subscribe(
+    let eventCode = this.event.code;
+    this.questionService.addQuestion({ question, author, likes, replies, date, eventCode } as Question).subscribe(
       question => this.questions.push(question));
     console.log(this.questions);
   }
