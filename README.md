@@ -31,4 +31,4 @@ After CLI has been installed, we can just run our server:
 
     ng serve
     
-he application is visible at port 4200: (http://localhost:4200)
+The application is visible at port 4200: (http://localhost:4200)
